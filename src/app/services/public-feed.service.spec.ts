@@ -97,7 +97,7 @@ describe('PublicFeedService', () => {
     });
 
     it('should call api with correct url', () => {
-        const httpClient = TestBed.get(HttpClient) as HttpClient;
+        const httpClient = TestBed.inject(HttpClient) as HttpClient;
         spyOn(httpClient, 'get').and.callThrough();
 
         service.getImages('food');
@@ -106,7 +106,7 @@ describe('PublicFeedService', () => {
     });
 
     it('should return feed correctly', () => {
-        const httpClient = TestBed.get(HttpClient) as HttpClient;
+        const httpClient = TestBed.inject(HttpClient) as HttpClient;
         spyOn(httpClient, 'get').and.callThrough();
 
         service.getImages().subscribe(response => {
@@ -115,7 +115,7 @@ describe('PublicFeedService', () => {
     });
 
     it('should throw error if api fails', () => {
-        const httpClient = TestBed.get(HttpClient) as HttpClient;
+        const httpClient = TestBed.inject(HttpClient) as HttpClient;
         spyOn(httpClient, 'get').and.callFake(() => {
             return throwError(new HttpErrorResponse({ error: { code: 'generic_error' } }));
         });

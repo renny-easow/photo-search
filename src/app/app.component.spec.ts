@@ -60,7 +60,7 @@ describe('AppComponent', () => {
 
         fixture = TestBed.createComponent(AppComponent);
         component = fixture.componentInstance;
-        publicFeedService = TestBed.get(PublicFeedService);
+        publicFeedService = TestBed.inject(PublicFeedService);
     });
 
     it('should create the app', () => {
